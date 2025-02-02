@@ -1,80 +1,56 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Trophy, Calendar, Medal, School, ChevronRight as ChevronRightIcon } from 'lucide-react';
+import { Header } from '../../assests/Header2';
+import { Navigation } from '../../components/Navigation';
+import { Footer } from '../../components/Footer';
 
-interface Tournament {
-  id: string;
-  name: string;
-  date: string;
-  participants: {
-    name: string;
-    weapon: string;
-  }[];
-  faculty: string[];
-}
+const galleryImages = [
+  "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&q=80&w=1200",
+  "https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&q=80&w=1200",
+  "https://images.unsplash.com/photo-1553005746-9245ba190489?auto=format&fit=crop&q=80&w=1200"
+];
 
-const tournaments: Tournament[] = [
+const tournaments = [
   {
     id: "t1",
-    name: "National University Games 2024",
-    date: "2024-03-15",
+    name: "Inter-University Volleyball Championship 2024",
+    date: "2024-04-15",
     participants: [
-      { name: "John Doe", weapon: "Foil" },
-      { name: "Jane Smith", weapon: "Épée" }
+      { name: "Team A", weapon: "Men's Team" },
+      { name: "Team B", weapon: "Women's Team" }
     ],
-    faculty: ["Dr. Robert Wilson", "Prof. Sarah Parker"]
+    faculty: ["Coach Robert Wilson", "Coach Sarah Parker"]
   },
   {
     id: "t2",
-    name: "State Championships 2024",
-    date: "2024-04-20",
+    name: "State Volleyball Tournament 2024",
+    date: "2024-05-20",
     participants: [
-      { name: "Mike Johnson", weapon: "Sabre" },
-      { name: "Emily Brown", weapon: "Foil" }
+      { name: "Mixed Team A", weapon: "Mixed Doubles" },
+      { name: "Mixed Team B", weapon: "Mixed Doubles" }
     ],
-    faculty: ["Prof. James Anderson"]
-  },
-  {
-    id: "t3",
-    name: "Inter-University Tournament",
-    date: "2024-05-10",
-    participants: [
-      { name: "Sarah Wilson", weapon: "Épée" },
-      { name: "Tom Davis", weapon: "Sabre" }
-    ],
-    faculty: ["Dr. Maria Garcia", "Prof. David Lee"]
+    faculty: ["Coach James Anderson"]
   }
-];
-
-const galleryImages = [
-  "https://images.unsplash.com/photo-1566796201787-b088b10c194c?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1566796199828-1963d81f0f87?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1566796199843-33cdf1d3e022?auto=format&fit=crop&q=80&w=1200",
 ];
 
 const achievements = [
   {
     year: "2023",
     title: "Gold Medal - National University Games",
-    description: "Team secured first place in the national championship",
-    image: "https://images.unsplash.com/photo-1566796201787-b088b10c194c?auto=format&fit=crop&q=80&w=800"
+    description: "Men's team secured first place in the national championship",
+    image: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&q=80&w=800"
   },
   {
     year: "2022",
     title: "Silver Medal - State Championships",
-    description: "Outstanding performance in individual category",
-    image: "https://images.unsplash.com/photo-1566796199828-1963d81f0f87?auto=format&fit=crop&q=80&w=800"
-  },
-  {
-    year: "2021",
-    title: "Bronze Medal - Inter-University Tournament",
-    description: "Exceptional performance in team events",
-    image: "https://images.unsplash.com/photo-1566796199843-33cdf1d3e022?auto=format&fit=crop&q=80&w=800"
+    description: "Women's team secured second place",
+    image: "https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&q=80&w=800"
   }
 ];
 
-function Fencing() {
+export default function Volleyball() {
   const [currentImage, setCurrentImage] = useState(0);
-  const [selectedTournament, setSelectedTournament] = useState<Tournament | null>(null);
+  const [selectedTournament, setSelectedTournament] = useState<typeof tournaments[0] | null>(null);
 
   const nextImage = () => {
     setCurrentImage((prev) => (prev + 1) % galleryImages.length);
@@ -86,51 +62,26 @@ function Fencing() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b-2 border-[#a30000] shadow-md">
-        <div className="max-w-7xl mx-auto px-4 py-6 flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-[#a30000]">
-              Rajiv Gandhi University of Knowledge Technologies - Andhra Pradesh
-            </h1>
-            <h2 className="text-lg mt-2">Nuzvid Campus</h2>
-            <p className="text-sm mt-1">Catering to the Educational Needs of Gifted Rural Youth of Andhra Pradesh</p>
-            <p className="text-sm">(Established by the Govt. of Andhra Pradesh and recognized as per Section 2(f) of UGC Act, 1956)</p>
-            <p className="text-sm font-semibold mt-1">Accredited by 'NAAC' with 'B+' Grade</p>
-          </div>
-        </div>
-      </header>
-
-      {/* Navigation */}
-      <nav className="bg-[#900] text-white py-3">
-        <div className="max-w-7xl mx-auto px-4 flex justify-center space-x-6">
-          <a href="/" className="hover:text-[#ffcccb] transition-colors">Home</a>
-          <a href="#" className="hover:text-[#ffcccb] transition-colors">Sports</a>
-          <a href="#" className="hover:text-[#ffcccb] transition-colors">Achievements</a>
-          <a href="#" className="hover:text-[#ffcccb] transition-colors">Calendar</a>
-          <a href="#" className="hover:text-[#ffcccb] transition-colors">Media</a>
-        </div>
-      </nav>
+      <Header />
+      <Navigation />
 
       {/* Breadcrumb Navigation */}
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center text-sm">
-        <a href="/" className="text-[#900] hover:text-[#700] transition-colors">Home</a>
+        <a href="/" className="text-[#900] hover:text-[#700] transition-colors">Physical Education</a>
         <ChevronRightIcon className="w-4 h-4 mx-2 text-gray-500" />
-        <a href="/physical-education" className="text-[#900] hover:text-[#700] transition-colors">Physical Education</a>
-        <ChevronRightIcon className="w-4 h-4 mx-2 text-gray-500" />
-        <span className="text-gray-600 font-medium">Fencing</span>
+        <span className="text-gray-600 font-medium">Volleyball</span>
       </div>
 
       {/* Gallery Section */}
       <section className="py-12 px-4">
         <h2 className="text-3xl font-bold text-center mb-8 text-[#900]">
-          Fencing Gallery
+          Volleyball Gallery
         </h2>
         <div className="relative max-w-4xl mx-auto">
           <div className="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-xl">
             <img
               src={galleryImages[currentImage]}
-              alt={`Fencing ${currentImage + 1}`}
+              alt={`Volleyball ${currentImage + 1}`}
               className="w-full h-full object-cover transform transition-transform duration-500"
             />
           </div>
@@ -192,7 +143,7 @@ function Fencing() {
                   <div>
                     <h4 className="text-lg font-semibold mb-3 text-[#900] flex items-center gap-2">
                       <Medal className="w-5 h-5" />
-                      Participants
+                      Teams
                     </h4>
                     <div className="grid grid-cols-1 gap-2">
                       {selectedTournament.participants.map((participant, idx) => (
@@ -208,7 +159,7 @@ function Fencing() {
                   <div>
                     <h4 className="text-lg font-semibold mb-3 text-[#900] flex items-center gap-2">
                       <School className="w-5 h-5" />
-                      Faculty
+                      Coaches
                     </h4>
                     <div className="grid grid-cols-1 gap-2">
                       {selectedTournament.faculty.map((faculty, idx) => (
@@ -266,8 +217,19 @@ function Fencing() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }
-
-export default Fencing;
+// just like fencing.tsx making same or similar pages for all the remaining games given in the pop up of sports after opened the fencing page
+// { path: '/fencing', name: 'Fencing' },
+//     { path: '/volleyball', name: 'Volleyball' },
+//     { path: '/basketball', name: 'Basketball' },
+//     { path: '/softball', name: 'Softball' },
+//     { path: '/yoga', name: 'Yoga' },
+//     { path: '/archery', name: 'Archery' },
+//     { path: '/badminton', name: 'Badminton' },
+//     { path: '/football', name: 'Football' },
+//     { path: '/cricket', name: 'Cricket' }
+// make sure for every sport a page with same theme should be acreated according to there team names and weapons,position respectively

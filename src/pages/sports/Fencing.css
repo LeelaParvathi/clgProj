@@ -1,0 +1,28 @@
+/* CSS Changes in Fencing.css */
+
+.fencing-page .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    padding: 10px 0;
+  }
+  
+  .fencing-page .header-image img {
+    width: 100%;
+    display: block;
+    margin-bottom: 0; /* Remove extra space */
+  }
+  
+  .fencing-page .page-title {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .fencing-page .content-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Ensure equal spacing between sections */
+  }

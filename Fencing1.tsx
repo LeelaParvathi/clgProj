@@ -1,46 +1,51 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Trophy, Calendar, Medal, School, ChevronRight as ChevronRightIcon } from 'lucide-react';
-import { Header } from '../../components/Header';
-import { Navigation } from '../../components/Navigation';
-import { Footer } from '../../components/Footer';
+import { Header } from './src/assests/Header2';
+import { Navigation } from './src/components/Navigation';
+import { Footer } from './src/components/Footer';
+interface Tournament {
+  id: string;
+  name: string;
+  date: string;
+  participants: {
+    name: string;
+    weapon: string;
+  }[];
+  faculty: string[];
+}
 
-const galleryImages = [
-  "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1553005746-9245ba190489?auto=format&fit=crop&q=80&w=1200"
-];
-
-const tournaments = [
+const tournaments: Tournament[] = [
   {
     id: "t1",
-    name: "Inter-University Volleyball Championship 2024",
-    date: "2024-04-15",
+    name: "National University Games 2024",
+    date: "2024-03-15",
     participants: [
-      { name: "Team A", weapon: "Men's Team" },
-      { name: "Team B", weapon: "Women's Team" }
+      { name: "John Doe", weapon: "Foil" },
+      { name: "Jane Smith", weapon: "Épée" }
     ],
-    faculty: ["Coach Robert Wilson", "Coach Sarah Parker"],
-    performanceHistory: [
-      { year: "2023", result: "Champion" },
-      { year: "2022", result: "Runner-up" }
-    ]
+    faculty: ["Dr. Robert Wilson", "Prof. Sarah Parker"]
   },
   {
     id: "t2",
-    name: "State Volleyball Tournament 2024",
-    date: "2024-05-20",
+    name: "State Championships 2024",
+    date: "2024-04-20",
     participants: [
-      { name: "Mixed Team A", weapon: "Mixed Doubles" },
-      { name: "Mixed Team B", weapon: "Mixed Doubles" }
+      { name: "Mike Johnson", weapon: "Sabre" },
+      { name: "Emily Brown", weapon: "Foil" }
     ],
-    faculty: ["Coach James Anderson"],
-    performanceHistory: [
-      { year: "2023", result: "Quarterfinals" },
-      { year: "2022", result: "Semifinals" }
-    ]
+    faculty: ["Prof. James Anderson"]
+  },
+  {
+    id: "t3",
+    name: "Inter-University Tournament",
+    date: "2024-05-10",
+    participants: [
+      { name: "Sarah Wilson", weapon: "Épée" },
+      { name: "Tom Davis", weapon: "Sabre" }
+    ],
+    faculty: ["Dr. Maria Garcia", "Prof. David Lee"]
   }
 ];
-
 const teamDetails = [
   {
     teamName: "Team A",
@@ -55,6 +60,13 @@ const teamDetails = [
     achievements: ["Winner - Regional Tournament 2023", "Semifinalist - Nationals 2022"]
   }
 ];
+
+const galleryImages = [
+  "https://images.unsplash.com/photo-1566796201787-b088b10c194c?auto=format&fit=crop&q=80&w=1200",
+  "https://images.unsplash.com/photo-1566796199828-1963d81f0f87?auto=format&fit=crop&q=80&w=1200",
+  "https://images.unsplash.com/photo-1566796199843-33cdf1d3e022?auto=format&fit=crop&q=80&w=1200",
+];
+
 const achievements = [
   {
     year: "2023",
@@ -76,10 +88,9 @@ const achievements = [
   }
 ];
 
-
-export default function Volleyball() {
+function Fencing() {
   const [currentImage, setCurrentImage] = useState(0);
-  const [selectedTournament, setSelectedTournament] = useState<typeof tournaments[0] | null>(null);
+  const [selectedTournament, setSelectedTournament] = useState<Tournament | null>(null);
   const [selectedTeam, setSelectedTeam] = useState<typeof teamDetails[0] | null>(null);
 
   const nextImage = () => {
@@ -95,23 +106,25 @@ export default function Volleyball() {
       <Header />
       <Navigation />
 
+      
+
       {/* Breadcrumb Navigation */}
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center text-sm">
         <a href="/" className="text-[#900] hover:text-[#700] transition-colors">Physical Education</a>
         <ChevronRightIcon className="w-4 h-4 mx-2 text-gray-500" />
-        <span className="text-gray-600 font-medium">Volleyball</span>
+        <span className="text-gray-600 font-medium">Fencing</span>
       </div>
 
       {/* Gallery Section */}
       <section className="py-12 px-4">
         <h2 className="text-3xl font-bold text-center mb-8 text-[#900]">
-          Volleyball Gallery
+          Fencing Gallery
         </h2>
         <div className="relative max-w-4xl mx-auto">
           <div className="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-xl">
             <img
               src={galleryImages[currentImage]}
-              alt={`Volleyball ${currentImage + 1}`}
+              alt={`Fencing ${currentImage + 1}`}
               className="w-full h-full object-cover transform transition-transform duration-500"
             />
           </div>
@@ -130,10 +143,10 @@ export default function Volleyball() {
         </div>
       </section>
 
-  {/* Tournament Calendar Section */}
+      {/* Tournament Calendar Section */}
       <section className="py-12 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-8 text-[#900]">
+          <h2 className="text-3xl font-bold text-center mb-8 text-[#900] flex items-center justify-center gap-2">
             <Calendar className="w-8 h-8" />
             Tournament Calendar
           </h2>
@@ -173,18 +186,11 @@ export default function Volleyball() {
                   <div>
                     <h4 className="text-lg font-semibold mb-3 text-[#900] flex items-center gap-2">
                       <Medal className="w-5 h-5" />
-                      Teams
+                      Participants
                     </h4>
                     <div className="grid grid-cols-1 gap-2">
                       {selectedTournament.participants.map((participant, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-center gap-2 bg-gray-50 p-3 rounded-lg cursor-pointer"
-                          onClick={() => {
-                            const team = teamDetails.find((t) => t.teamName === participant.name);
-                            if (team) setSelectedTeam(team);
-                          }}
-                        >
+                        <div key={idx} className="flex items-center gap-2 bg-gray-50 p-3 rounded-lg">
                           <span className="font-medium">{participant.name}</span>
                           <span className="text-gray-600 text-sm bg-white px-2 py-1 rounded">
                             {participant.weapon}
@@ -196,7 +202,7 @@ export default function Volleyball() {
                   <div>
                     <h4 className="text-lg font-semibold mb-3 text-[#900] flex items-center gap-2">
                       <School className="w-5 h-5" />
-                      Coaches
+                      Faculty
                     </h4>
                     <div className="grid grid-cols-1 gap-2">
                       {selectedTournament.faculty.map((faculty, idx) => (
@@ -219,7 +225,7 @@ export default function Volleyball() {
         </div>
       </section>
     {/* Team Details Modal */}
-      {selectedTeam && (
+    {selectedTeam && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg p-8 max-w-2xl w-full">
             <h3 className="text-2xl font-bold mb-6 text-[#900] border-b-2 border-[#900] pb-2">
@@ -251,6 +257,7 @@ export default function Volleyball() {
           </div>
         </div>
       )}
+
       {/* Achievements Section */}
       <section className="py-12 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
@@ -286,9 +293,9 @@ export default function Volleyball() {
           </div>
         </div>
       </section>
-
-
-      <Footer />
+      <Footer/>
     </div>
   );
 }
+
+export default Fencing;

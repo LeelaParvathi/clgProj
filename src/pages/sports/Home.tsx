@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Header } from '../../components/Header';
+import { Navigation } from '../../components/Navigation';
+import { Footer } from '../../components/Footer';
 import { 
   ChevronDown, 
   Calendar, 
@@ -14,6 +17,8 @@ import {
   Instagram,
   Youtube
 } from 'lucide-react';
+
+
 
 const bannerImages = [
   "https://images.unsplash.com/photo-1566796201787-b088b10c194c?auto=format&fit=crop&q=80&w=2000",
@@ -77,55 +82,8 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b-2 border-[#a30000] shadow-md">
-        <div className="max-w-7xl mx-auto px-4 py-6 flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-[#a30000]">
-              Rajiv Gandhi University of Knowledge Technologies - Andhra Pradesh
-            </h1>
-            <h2 className="text-lg mt-2">Nuzvid Campus</h2>
-            <p className="text-sm mt-1">Catering to the Educational Needs of Gifted Rural Youth of Andhra Pradesh</p>
-            <p className="text-sm">(Established by the Govt. of Andhra Pradesh and recognized as per Section 2(f) of UGC Act, 1956)</p>
-            <p className="text-sm font-semibold mt-1">Accredited by 'NAAC' with 'B+' Grade</p>
-          </div>
-        </div>
-      </header>
-
-      {/* Navigation */}
-      <nav className="bg-[#900] text-white py-3 relative">
-        <div className="max-w-7xl mx-auto px-4 flex justify-center space-x-6">
-          <Link to="/" className="hover:text-[#ffcccb] transition-colors">HOME</Link>
-          <div className="relative">
-            <button 
-              className="flex items-center hover:text-[#ffcccb] transition-colors"
-              onMouseEnter={() => setShowSportsDropdown(true)}
-              onMouseLeave={() => setShowSportsDropdown(false)}
-            >
-              SPORTS <ChevronDown className="w-4 h-4 ml-1" />
-            </button>
-            {showSportsDropdown && (
-              <div 
-                className="absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg py-1 z-50"
-                onMouseEnter={() => setShowSportsDropdown(true)}
-                onMouseLeave={() => setShowSportsDropdown(false)}
-              >
-                <Link to="/fencing" className="block px-4 py-2 text-[#900] hover:bg-gray-100">Fencing</Link>
-                <Link to="/volleyball" className="block px-4 py-2 text-[#900] hover:bg-gray-100">Volleyball</Link>
-                <Link to="/basketball" className="block px-4 py-2 text-[#900] hover:bg-gray-100">Basketball</Link>
-                <Link to="/football" className="block px-4 py-2 text-[#900] hover:bg-gray-100">Football</Link>
-                <Link to="/yoga" className="block px-4 py-2 text-[#900] hover:bg-gray-100">Yoga</Link>
-              </div>
-            )}
-          </div>
-          <Link to="/facilities" className="hover:text-[#ffcccb] transition-colors">FACILITIES</Link>
-          <Link to="/faculty" className="hover:text-[#ffcccb] transition-colors">FACULTY</Link>
-          <Link to="/achievements" className="hover:text-[#ffcccb] transition-colors">ACHIEVEMENTS</Link>
-          <Link to="/gallery" className="hover:text-[#ffcccb] transition-colors">GALLERY</Link>
-          <Link to="/student-login" className="hover:text-[#ffcccb] transition-colors">STUDENT LOGIN</Link>
-          <Link to="/contact" className="hover:text-[#ffcccb] transition-colors">CONTACT US</Link>
-        </div>
-      </nav>
+      <Header />
+      <Navigation />
 
       {/* Banner Slider */}
       <div className="relative h-[500px] overflow-hidden">
@@ -232,7 +190,7 @@ function Home() {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="space-y-3">
               <h3 className="font-semibold text-lg text-[#900] mb-4">Sports</h3>
-              <Link to="/fencing" className="flex items-center text-gray-700 hover:text-[#900]">
+              <Link to="/Fencing" className="flex items-center text-gray-700 hover:text-[#900]">
                 <ExternalLink className="w-4 h-4 mr-2" /> Fencing
               </Link>
               <Link to="/volleyball" className="flex items-center text-gray-700 hover:text-[#900]">
@@ -270,60 +228,8 @@ function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#900] text-white py-12">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-              <div className="space-y-3">
-                <p className="flex items-center">
-                  <MapPin className="w-5 h-5 mr-2" />
-                  RGUKT Nuzvid Campus, Krishna District, Andhra Pradesh - 521202
-                </p>
-                <p className="flex items-center">
-                  <Phone className="w-5 h-5 mr-2" />
-                  +91 XX XXXX XXXX
-                </p>
-                <p className="flex items-center">
-                  <Mail className="w-5 h-5 mr-2" />
-                  sports@rguktn.ac.in
-                </p>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Important Links</h3>
-              <ul className="space-y-2">
-                <li><Link to="/about" className="hover:text-[#ffcccb]">About Us</Link></li>
-                <li><Link to="/facilities" className="hover:text-[#ffcccb]">Facilities</Link></li>
-                <li><Link to="/faculty" className="hover:text-[#ffcccb]">Faculty</Link></li>
-                <li><Link to="/achievements" className="hover:text-[#ffcccb]">Achievements</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Student Resources</h3>
-              <ul className="space-y-2">
-                <li><Link to="/student-login" className="hover:text-[#ffcccb]">Student Portal</Link></li>
-                <li><Link to="/sports-calendar" className="hover:text-[#ffcccb]">Sports Calendar</Link></li>
-                <li><Link to="/training" className="hover:text-[#ffcccb]">Training Programs</Link></li>
-                <li><Link to="/equipment" className="hover:text-[#ffcccb]">Equipment</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
-              <div className="flex space-x-4">
-                <a href="#" className="hover:text-[#ffcccb]"><Facebook className="w-6 h-6" /></a>
-                <a href="#" className="hover:text-[#ffcccb]"><Twitter className="w-6 h-6" /></a>
-                <a href="#" className="hover:text-[#ffcccb]"><Instagram className="w-6 h-6" /></a>
-                <a href="#" className="hover:text-[#ffcccb]"><Youtube className="w-6 h-6" /></a>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-white/20 text-center">
-            <p>&copy; {new Date().getFullYear()} RGUKT-AP Nuzvid Campus. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+ 
+      <Footer />
     </div>
   );
 }

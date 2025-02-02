@@ -2,18 +2,27 @@ import React from 'react';
 
 export function Header() {
   return (
-    <header className="bg-white border-b-2 border-[#a30000] shadow-md">
-      <div className="max-w-7xl mx-auto px-4 py-6 flex items-center justify-center">
+    <section className="bg-white py-2">
+      <div className="container mx-auto flex items-center justify-center space-x-4">
+        <a href="index.php">
+          <img
+            src="https://www.rgukt.in/images/Logonew.png"
+            alt="logo"
+            className="w-20 h-20 object-contain"
+          />
+        </a>
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-[#a30000]">
-            Rajiv Gandhi University of Knowledge Technologies - Andhra Pradesh
+          <h1 className="text-xl md:text-2xl font-bold text-red-800">
+            Rajiv Gandhi University of Knowledge Technologies-Andhra Pradesh
           </h1>
-          <h2 className="text-lg mt-2">Nuzvid Campus</h2>
-          <p className="text-sm mt-1">Catering to the Educational Needs of Gifted Rural Youth of Andhra Pradesh</p>
-          <p className="text-sm">(Established by the Govt. of Andhra Pradesh and recognized as per Section 2(f) of UGC Act, 1956)</p>
-          <p className="text-sm font-semibold mt-1">Accredited by 'NAAC' with 'B+' Grade</p>
+          <p className="text-sm md:text-base text-blue-800 font-semibold">
+            Accredited by <strong>'NAAC'</strong> with <strong>'B+'</strong> Grade
+          </p>
+          <p className="text-xs md:text-sm text-red-700">
+            (Established by the Govt. of Andhra Pradesh and recognized as per Section 2(f), 12(B) of UGC Act, 1956)
+          </p>
         </div>
       </div>
-    </header>
+    </section>
   );
-}
+} 
