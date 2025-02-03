@@ -10,7 +10,7 @@ interface Tournament {
   date: string;
   participants: {
     name: string;
-    division: string;
+    category: string;
     description: string;
     keyPlayers: string[];
     achievements: string[];
@@ -25,93 +25,79 @@ interface Tournament {
 const tournaments: Tournament[] = [
   {
     id: "t1",
-    name: "National Volleyball Championship 2024",
-    date: "2024-03-15",
+    name: "National Badminton Championship 2024",
+    date: "2024-04-10",
     participants: [
       {
-        name: "Team A",
-        division: "Men's Division",
-        description: "Elite volleyball team known for powerful serves and strategic gameplay.",
-        keyPlayers: ["James Wilson (Captain)", "Michael Chen", "David Rodriguez"],
-        achievements: ["Champion - National League 2023", "Best Server Award - State Championship 2022"]
+        name: "Singles Team",
+        category: "Men's & Women's Singles",
+        description: "Elite singles players known for technical excellence and court coverage.",
+        keyPlayers: ["Ryan Chen (Captain)", "Amy Zhang", "Michael Lee"],
+        achievements: ["Gold - National Singles 2023", "Singles Champion - Asian University Games 2022"]
       },
       {
-        name: "Team B",
-        division: "Women's Division",
-        description: "Dynamic women's volleyball team with exceptional teamwork and defensive skills.",
-        keyPlayers: ["Emily Taylor (Captain)", "Sarah Johnson", "Maria Garcia"],
-        achievements: ["Winner - Regional Tournament 2023", "Best Defense Award - Nationals 2022"]
-      },
-      {
-        name: "Team C",
-        division: "Mixed Division",
-        description: "Versatile mixed team focusing on balanced attack and defense strategies.",
-        keyPlayers: ["Alex Lee (Captain)", "Jordan Smith", "Chris Wong"],
-        achievements: ["Mixed Division Champions - 2023", "Most Improved Team - 2022"]
+        name: "Doubles Team",
+        category: "Mixed Doubles",
+        description: "Dynamic doubles pairs with exceptional coordination and strategy.",
+        keyPlayers: ["Sarah Park (Captain)", "James Wilson", "Emily Liu"],
+        achievements: ["Mixed Doubles Champions 2023", "Silver - International Tournament 2022"]
       }
     ],
-    faculty: ["Coach Robert Martinez", "Coach Lisa Anderson"],
+    faculty: ["Coach Thomas Wu", "Coach Jennifer Smith"],
     performanceHistory: [
-      { year: "2023", result: "Champion" },
-      { year: "2022", result: "Runner-up" }
+      { year: "2023", result: "Overall Champions" },
+      { year: "2022", result: "Runners-up" }
     ]
   },
   {
     id: "t2",
-    name: "State Volleyball League 2024",
-    date: "2024-04-20",
+    name: "University Badminton League 2024",
+    date: "2024-05-20",
     participants: [
       {
-        name: "Team A",
-        division: "Senior Division",
-        description: "Experienced team known for tactical gameplay and strong offense.",
-        keyPlayers: ["Tom Harris (Captain)", "Steve Kim", "Mark Thompson"],
-        achievements: ["State League Champions 2023", "Best Offense Award 2022"]
-      },
-      {
-        name: "Team B",
-        division: "Junior Division",
-        description: "Rising stars with innovative strategies and quick adaptability.",
-        keyPlayers: ["Rachel Chen (Captain)", "Kevin Liu", "Amanda White"],
-        achievements: ["Junior Division Winners 2023", "Most Progressive Team 2022"]
+        name: "Team Elite",
+        category: "Team Event",
+        description: "Combined singles and doubles team showcasing versatility.",
+        keyPlayers: ["Kevin Wang (Captain)", "Lisa Chen", "David Park"],
+        achievements: ["University Champions 2023", "Best Team Performance 2022"]
       }
     ],
-    faculty: ["Coach James Williams"],
+    faculty: ["Coach Robert Zhang"],
     performanceHistory: [
-      { year: "2023", result: "Semifinalist" },
-      { year: "2022", result: "Quarterfinalist" }
+      { year: "2023", result: "Champions" },
+      { year: "2022", result: "Semifinalists" }
     ]
   }
 ];
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=1200"
+  "https://images.unsplash.com/photo-1613918431703-aa50889e3be8?auto=format&fit=crop&q=80&w=1200",
+  "https://images.unsplash.com/photo-1613918431789-75af2a8e7f9f?auto=format&fit=crop&q=80&w=1200",
+  "https://images.unsplash.com/photo-1613918431544-86f268574c4f?auto=format&fit=crop&q=80&w=1200"
 ];
 
 const achievements = [
   {
     year: "2023",
-    title: "National Volleyball Championship Winners",
-    description: "Team secured first place in the national championship",
-    image: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&q=80&w=800"
+    title: "Gold Medal - National University Championship",
+    description: "Team secured overall championship in singles and doubles categories",
+    image: "https://images.unsplash.com/photo-1613918431703-aa50889e3be8?auto=format&fit=crop&q=80&w=800"
   },
   {
     year: "2022",
-    title: "State Volleyball League Champions",
-    description: "Outstanding performance in team category",
-    image: "https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&q=80&w=800"
+    title: "Silver Medal - Asian University Games",
+    description: "Outstanding performance in team events",
+    image: "https://images.unsplash.com/photo-1613918431789-75af2a8e7f9f?auto=format&fit=crop&q=80&w=800"
   },
   {
     year: "2021",
-    title: "Inter-University Volleyball Tournament",
-    description: "Runner-up in the prestigious tournament",
-    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=800"
+    title: "Bronze Medal - International Tournament",
+    description: "Exceptional achievement in mixed doubles",
+    image: "https://images.unsplash.com/photo-1613918431544-86f268574c4f?auto=format&fit=crop&q=80&w=800"
   }
 ];
 
-function Volleyball() {
+function Badminton() {
   const [currentImage, setCurrentImage] = useState(0);
   const [selectedTournament, setSelectedTournament] = useState<Tournament | null>(null);
   const [selectedTeam, setSelectedTeam] = useState<Tournament['participants'][0] | null>(null);
@@ -133,19 +119,19 @@ function Volleyball() {
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center text-base border-b border-gray-200">
         <a href="/" className="text-[#900] hover:text-[#700] transition-colors font-medium">Physical Education</a>
         <ChevronRightIcon className="w-5 h-5 mx-2 text-gray-500" />
-        <span className="text-gray-800 font-semibold text-lg">Volleyball</span>
+        <span className="text-gray-800 font-semibold text-lg">Badminton</span>
       </div>
 
       {/* Gallery Section */}
       <section className="py-8 px-4">
         <h2 className="text-4xl font-bold text-center mb-6 text-[#900]">
-          Volleyball Gallery
+          Badminton Gallery
         </h2>
         <div className="relative max-w-6xl mx-auto">
           <div className="h-[500px] overflow-hidden rounded-lg shadow-xl">
             <img
               src={galleryImages[currentImage]}
-              alt={`Volleyball ${currentImage + 1}`}
+              alt={`Badminton ${currentImage + 1}`}
               className="w-full h-full object-cover object-center transform transition-transform duration-500"
             />
           </div>
@@ -235,7 +221,7 @@ function Volleyball() {
                       <div className="flex justify-between items-center mb-2">
                         <span className="font-medium text-lg">{participant.name}</span>
                         <span className="text-gray-600 text-sm bg-white px-2 py-1 rounded">
-                          {participant.division}
+                          {participant.category}
                         </span>
                       </div>
                       <p className="text-gray-700 text-sm">{participant.description}</p>
@@ -286,7 +272,7 @@ function Volleyball() {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg p-8 max-w-2xl w-full">
             <h3 className="text-2xl font-bold mb-6 text-[#900] border-b-2 border-[#900] pb-2">
-              {selectedTeam.name} - {selectedTeam.division}
+              {selectedTeam.name} - {selectedTeam.category}
             </h3>
             <p className="text-gray-700 mb-4">{selectedTeam.description}</p>
             <div className="mb-4">
@@ -356,4 +342,4 @@ function Volleyball() {
   );
 }
 
-export default Volleyball;
+export default Badminton;

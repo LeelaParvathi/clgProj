@@ -21,8 +21,8 @@ import {
 
 
 const bannerImages = [
-  "https://images.unsplash.com/photo-1566796201787-b088b10c194c?auto=format&fit=crop&q=80&w=2000",
   "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=2000",
+  "https://images.unsplash.com/photo-1566796201787-b088b10c194c?auto=format&fit=crop&q=80&w=2000",
   "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=2000",
   "https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&q=80&w=2000"
 ];

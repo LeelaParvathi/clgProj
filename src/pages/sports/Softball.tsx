@@ -25,32 +25,32 @@ interface Tournament {
 const tournaments: Tournament[] = [
   {
     id: "t1",
-    name: "National Volleyball Championship 2024",
+    name: "National Softball Championship 2024",
     date: "2024-03-15",
     participants: [
       {
         name: "Team A",
         division: "Men's Division",
-        description: "Elite volleyball team known for powerful serves and strategic gameplay.",
-        keyPlayers: ["James Wilson (Captain)", "Michael Chen", "David Rodriguez"],
-        achievements: ["Champion - National League 2023", "Best Server Award - State Championship 2022"]
+        description: "Elite softball team known for powerful hitting and strategic fielding.",
+        keyPlayers: ["Mike Anderson (Captain)", "Chris Taylor", "James Wilson"],
+        achievements: ["Champion - National League 2023", "Best Batting Average - State Championship 2022"]
       },
       {
         name: "Team B",
         division: "Women's Division",
-        description: "Dynamic women's volleyball team with exceptional teamwork and defensive skills.",
-        keyPlayers: ["Emily Taylor (Captain)", "Sarah Johnson", "Maria Garcia"],
-        achievements: ["Winner - Regional Tournament 2023", "Best Defense Award - Nationals 2022"]
+        description: "Dynamic women's softball team with exceptional pitching and teamwork.",
+        keyPlayers: ["Emma Roberts (Captain)", "Sophie Martinez", "Laura Chen"],
+        achievements: ["Winner - Regional Tournament 2023", "Best Pitcher Award - Nationals 2022"]
       },
       {
         name: "Team C",
         division: "Mixed Division",
-        description: "Versatile mixed team focusing on balanced attack and defense strategies.",
-        keyPlayers: ["Alex Lee (Captain)", "Jordan Smith", "Chris Wong"],
+        description: "Versatile mixed team focusing on balanced offense and defense.",
+        keyPlayers: ["Sam Lee (Captain)", "Alex Wong", "Jamie Garcia"],
         achievements: ["Mixed Division Champions - 2023", "Most Improved Team - 2022"]
       }
     ],
-    faculty: ["Coach Robert Martinez", "Coach Lisa Anderson"],
+    faculty: ["Coach Robert Wilson", "Coach Sarah Parker"],
     performanceHistory: [
       { year: "2023", result: "Champion" },
       { year: "2022", result: "Runner-up" }
@@ -58,15 +58,15 @@ const tournaments: Tournament[] = [
   },
   {
     id: "t2",
-    name: "State Volleyball League 2024",
+    name: "State Softball League 2024",
     date: "2024-04-20",
     participants: [
       {
         name: "Team A",
         division: "Senior Division",
-        description: "Experienced team known for tactical gameplay and strong offense.",
+        description: "Experienced team known for tactical gameplay and strong defense.",
         keyPlayers: ["Tom Harris (Captain)", "Steve Kim", "Mark Thompson"],
-        achievements: ["State League Champions 2023", "Best Offense Award 2022"]
+        achievements: ["State League Champions 2023", "Best Defense Award 2022"]
       },
       {
         name: "Team B",
@@ -85,33 +85,33 @@ const tournaments: Tournament[] = [
 ];
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=1200"
+  "https://images.unsplash.com/photo-1562552052-4e9f2d8e8a42?auto=format&fit=crop&q=80&w=1200",
+  "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?auto=format&fit=crop&q=80&w=1200",
+  "https://images.unsplash.com/photo-1508802654646-fb6b7f78027d?auto=format&fit=crop&q=80&w=1200"
 ];
 
 const achievements = [
   {
     year: "2023",
-    title: "National Volleyball Championship Winners",
+    title: "National Softball Championship Winners",
     description: "Team secured first place in the national championship",
-    image: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&q=80&w=800"
+    image: "https://images.unsplash.com/photo-1562552052-4e9f2d8e8a42?auto=format&fit=crop&q=80&w=800"
   },
   {
     year: "2022",
-    title: "State Volleyball League Champions",
+    title: "State Softball League Champions",
     description: "Outstanding performance in team category",
-    image: "https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&q=80&w=800"
+    image: "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?auto=format&fit=crop&q=80&w=800"
   },
   {
     year: "2021",
-    title: "Inter-University Volleyball Tournament",
+    title: "Inter-University Softball Tournament",
     description: "Runner-up in the prestigious tournament",
-    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=800"
+    image: "https://images.unsplash.com/photo-1508802654646-fb6b7f78027d?auto=format&fit=crop&q=80&w=800"
   }
 ];
 
-function Volleyball() {
+function Softball() {
   const [currentImage, setCurrentImage] = useState(0);
   const [selectedTournament, setSelectedTournament] = useState<Tournament | null>(null);
   const [selectedTeam, setSelectedTeam] = useState<Tournament['participants'][0] | null>(null);
@@ -133,19 +133,19 @@ function Volleyball() {
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center text-base border-b border-gray-200">
         <a href="/" className="text-[#900] hover:text-[#700] transition-colors font-medium">Physical Education</a>
         <ChevronRightIcon className="w-5 h-5 mx-2 text-gray-500" />
-        <span className="text-gray-800 font-semibold text-lg">Volleyball</span>
+        <span className="text-gray-800 font-semibold text-lg">Softball</span>
       </div>
 
       {/* Gallery Section */}
       <section className="py-8 px-4">
         <h2 className="text-4xl font-bold text-center mb-6 text-[#900]">
-          Volleyball Gallery
+          Softball Gallery
         </h2>
         <div className="relative max-w-6xl mx-auto">
           <div className="h-[500px] overflow-hidden rounded-lg shadow-xl">
             <img
               src={galleryImages[currentImage]}
-              alt={`Volleyball ${currentImage + 1}`}
+              alt={`Softball ${currentImage + 1}`}
               className="w-full h-full object-cover object-center transform transition-transform duration-500"
             />
           </div>
@@ -303,6 +303,7 @@ function Volleyball() {
                 {selectedTeam.achievements.map((achievement, idx) => (
                   <li key={idx}>{achievement}</li>
                 ))}
+               
               </ul>
             </div>
             <button
@@ -356,4 +357,4 @@ function Volleyball() {
   );
 }
 
-export default Volleyball;
+export default Softball;

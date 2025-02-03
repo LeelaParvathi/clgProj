@@ -6,15 +6,15 @@ export function Navigation() {
   const [showSportsDropdown, setShowSportsDropdown] = useState(false);
 
   const sports = [
-    { path: '/fencing', name: 'Fencing' },
-    { path: '/volleyball', name: 'Volleyball' },
-    { path: '/basketball', name: 'Basketball' },
-    { path: '/softball', name: 'Softball' },
-    { path: '/yoga', name: 'Yoga' },
     { path: '/archery', name: 'Archery' },
-    { path: '/badminton', name: 'Badminton' },
-    { path: '/football', name: 'Football' },
-    { path: '/cricket', name: 'Cricket' }
+{ path: '/badminton', name: 'Badminton' },
+{ path: '/basketball', name: 'Basketball' },
+{ path: '/cricket', name: 'Cricket' },
+{ path: '/fencing', name: 'Fencing' },
+{ path: '/football', name: 'Football' },
+{ path: '/softball', name: 'Softball' },
+{ path: '/volleyball', name: 'Volleyball' },
+{ path: '/yoga', name: 'Yoga' }
   ];
 
   return (

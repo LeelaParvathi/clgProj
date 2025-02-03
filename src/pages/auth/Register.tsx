@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Header } from '../../assests/Header2';
+import { Header } from '../../components/Header';
 import { Navigation } from '../../components/Navigation';
 import { Footer } from '../../components/Footer';
 import { Mail, Lock, User, Phone } from 'lucide-react';
@@ -136,6 +136,7 @@ export default function Register() {
                   <option value="badminton">Badminton</option>
                   <option value="football">Football</option>
                   <option value="cricket">Cricket</option>
+                  <option value="cricket">Kabaddi</option>
                 </select>
               </div>
 

@@ -25,93 +25,93 @@ interface Tournament {
 const tournaments: Tournament[] = [
   {
     id: "t1",
-    name: "National Volleyball Championship 2024",
+    name: "National Yoga Championship 2024",
     date: "2024-03-15",
     participants: [
       {
         name: "Team A",
-        division: "Men's Division",
-        description: "Elite volleyball team known for powerful serves and strategic gameplay.",
-        keyPlayers: ["James Wilson (Captain)", "Michael Chen", "David Rodriguez"],
-        achievements: ["Champion - National League 2023", "Best Server Award - State Championship 2022"]
+        division: "Advanced Division",
+        description: "Elite yoga practitioners known for perfect form and advanced asanas.",
+        keyPlayers: ["Maya Patel (Lead)", "Sarah Johnson", "David Chen"],
+        achievements: ["Champion - National Championship 2023", "Best Form Award - State Championship 2022"]
       },
       {
         name: "Team B",
-        division: "Women's Division",
-        description: "Dynamic women's volleyball team with exceptional teamwork and defensive skills.",
-        keyPlayers: ["Emily Taylor (Captain)", "Sarah Johnson", "Maria Garcia"],
-        achievements: ["Winner - Regional Tournament 2023", "Best Defense Award - Nationals 2022"]
+        division: "Intermediate Division",
+        description: "Dedicated practitioners focusing on alignment and breathing techniques.",
+        keyPlayers: ["Emma Wilson (Lead)", "Michael Brown", "Lisa Garcia"],
+        achievements: ["Winner - Regional Tournament 2023", "Most Improved Team - Nationals 2022"]
       },
       {
         name: "Team C",
-        division: "Mixed Division",
-        description: "Versatile mixed team focusing on balanced attack and defense strategies.",
-        keyPlayers: ["Alex Lee (Captain)", "Jordan Smith", "Chris Wong"],
-        achievements: ["Mixed Division Champions - 2023", "Most Improved Team - 2022"]
+        division: "Beginners Division",
+        description: "Enthusiastic newcomers mastering fundamental poses and breathing.",
+        keyPlayers: ["Alex Lee (Lead)", "Jordan Smith", "Rachel Wong"],
+        achievements: ["Best New Team - 2023", "Spirit Award - 2022"]
       }
     ],
-    faculty: ["Coach Robert Martinez", "Coach Lisa Anderson"],
+    faculty: ["Guru Priya Sharma", "Master David Wilson"],
     performanceHistory: [
-      { year: "2023", result: "Champion" },
-      { year: "2022", result: "Runner-up" }
+      { year: "2023", result: "Gold Medal" },
+      { year: "2022", result: "Silver Medal" }
     ]
   },
   {
     id: "t2",
-    name: "State Volleyball League 2024",
+    name: "State Yoga Competition 2024",
     date: "2024-04-20",
     participants: [
       {
         name: "Team A",
         division: "Senior Division",
-        description: "Experienced team known for tactical gameplay and strong offense.",
-        keyPlayers: ["Tom Harris (Captain)", "Steve Kim", "Mark Thompson"],
-        achievements: ["State League Champions 2023", "Best Offense Award 2022"]
+        description: "Experienced practitioners showcasing advanced poses and meditation.",
+        keyPlayers: ["Tom Harris (Lead)", "Steve Kim", "Mark Thompson"],
+        achievements: ["State Champions 2023", "Best Meditation Award 2022"]
       },
       {
         name: "Team B",
         division: "Junior Division",
-        description: "Rising stars with innovative strategies and quick adaptability.",
-        keyPlayers: ["Rachel Chen (Captain)", "Kevin Liu", "Amanda White"],
+        description: "Young practitioners with exceptional flexibility and dedication.",
+        keyPlayers: ["Rachel Chen (Lead)", "Kevin Liu", "Amanda White"],
         achievements: ["Junior Division Winners 2023", "Most Progressive Team 2022"]
       }
     ],
-    faculty: ["Coach James Williams"],
+    faculty: ["Master James Williams"],
     performanceHistory: [
-      { year: "2023", result: "Semifinalist" },
-      { year: "2022", result: "Quarterfinalist" }
+      { year: "2023", result: "Gold Medal" },
+      { year: "2022", result: "Silver Medal" }
     ]
   }
 ];
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=1200"
+  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1200",
+  "https://images.unsplash.com/photo-1588286840104-8957b019727f?auto=format&fit=crop&q=80&w=1200",
+  "https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&q=80&w=1200"
 ];
 
 const achievements = [
   {
     year: "2023",
-    title: "National Volleyball Championship Winners",
-    description: "Team secured first place in the national championship",
-    image: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&q=80&w=800"
+    title: "National Yoga Championship Gold",
+    description: "Team secured first place in advanced asanas",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800"
   },
   {
     year: "2022",
-    title: "State Volleyball League Champions",
-    description: "Outstanding performance in team category",
-    image: "https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&q=80&w=800"
+    title: "State Yoga Competition Winners",
+    description: "Outstanding performance in team synchronization",
+    image: "https://images.unsplash.com/photo-1588286840104-8957b019727f?auto=format&fit=crop&q=80&w=800"
   },
   {
     year: "2021",
-    title: "Inter-University Volleyball Tournament",
-    description: "Runner-up in the prestigious tournament",
-    image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=800"
+    title: "Inter-University Yoga Meet",
+    description: "Best team performance in meditation and breathing exercises",
+    image: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&q=80&w=800"
   }
 ];
 
-function Volleyball() {
+function Yoga() {
   const [currentImage, setCurrentImage] = useState(0);
   const [selectedTournament, setSelectedTournament] = useState<Tournament | null>(null);
   const [selectedTeam, setSelectedTeam] = useState<Tournament['participants'][0] | null>(null);
@@ -133,19 +133,19 @@ function Volleyball() {
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center text-base border-b border-gray-200">
         <a href="/" className="text-[#900] hover:text-[#700] transition-colors font-medium">Physical Education</a>
         <ChevronRightIcon className="w-5 h-5 mx-2 text-gray-500" />
-        <span className="text-gray-800 font-semibold text-lg">Volleyball</span>
+        <span className="text-gray-800 font-semibold text-lg">Yoga</span>
       </div>
 
       {/* Gallery Section */}
       <section className="py-8 px-4">
         <h2 className="text-4xl font-bold text-center mb-6 text-[#900]">
-          Volleyball Gallery
+          Yoga Gallery
         </h2>
         <div className="relative max-w-6xl mx-auto">
           <div className="h-[500px] overflow-hidden rounded-lg shadow-xl">
             <img
               src={galleryImages[currentImage]}
-              alt={`Volleyball ${currentImage + 1}`}
+              alt={`Yoga ${currentImage + 1}`}
               className="w-full h-full object-cover object-center transform transition-transform duration-500"
             />
           </div>
@@ -183,7 +183,7 @@ function Volleyball() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-8 text-[#900] flex items-center justify-center gap-2">
             <Calendar className="w-8 h-8" />
-            Tournament Calendar
+            Competition Calendar
           </h2>
           <div className="grid gap-4">
             {tournaments.map((tournament) => (
@@ -246,7 +246,7 @@ function Volleyball() {
               <div>
                 <h4 className="text-lg font-semibold mb-3 text-[#900] flex items-center gap-2">
                   <School className="w-5 h-5" />
-                  Coaches
+                  Instructors
                 </h4>
                 <div className="grid grid-cols-1 gap-2">
                   {selectedTournament.faculty.map((faculty, idx) => (
@@ -290,7 +290,7 @@ function Volleyball() {
             </h3>
             <p className="text-gray-700 mb-4">{selectedTeam.description}</p>
             <div className="mb-4">
-              <h4 className="text-lg font-semibold text-[#900]">Key Players:</h4>
+              <h4 className="text-lg font-semibold text-[#900]">Key Practitioners:</h4>
               <ul className="list-disc list-inside text-gray-700">
                 {selectedTeam.keyPlayers.map((player, idx) => (
                   <li key={idx}>{player}</li>
@@ -356,4 +356,4 @@ function Volleyball() {
   );
 }
 
-export default Volleyball;
+export default Yoga;
