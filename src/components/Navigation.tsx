@@ -12,9 +12,11 @@ export function Navigation() {
 { path: '/cricket', name: 'Cricket' },
 { path: '/fencing', name: 'Fencing' },
 { path: '/football', name: 'Football' },
+{ path: '/kabaddi', name: 'Kabaddi' },
 { path: '/softball', name: 'Softball' },
 { path: '/volleyball', name: 'Volleyball' },
 { path: '/yoga', name: 'Yoga' }
+
   ];
 
   return (
